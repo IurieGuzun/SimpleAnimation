@@ -9,8 +9,16 @@
 import SwiftUI
 
 struct ContentView: View {
+    @State private var scale: CGFloat = 1
+
     var body: some View {
-        Text("Hello, World!")
+        Button(action: {
+            self.scale += 1
+        }) {
+            Text("Tap here")
+                .scaleEffect(scale)
+                .animation(.linear)
+        }
     }
 }
 
