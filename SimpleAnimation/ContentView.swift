@@ -9,17 +9,22 @@
 import SwiftUI
 
 struct ContentView: View {
-    @State private var scale: CGFloat = 1
+    @State private var angle: Double = 0
+    @State private var borderThickness: CGFloat = 1
 
     var body: some View {
         Button(action: {
-            self.scale += 1
+            self.angle += 45
+            self.borderThickness += 1
         }) {
             Text("Tap here")
-                .scaleEffect(scale)
-                .animation(.linear)
+                .padding()
+                .border(Color.red, width: borderThickness)
+                .rotationEffect(.degrees(angle))
+                .animation(.easeIn)
         }
     }
+    
 }
 
 struct ContentView_Previews: PreviewProvider {
